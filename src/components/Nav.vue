@@ -1,7 +1,7 @@
 <template>
  <div class="">
-    <p>action is --{{JSON.stringify(NamedActionMap)}}</p>
-    <button @click="">点击</button>
+    <p>action is --{{JSON.stringify({})}}</p>
+
     <div role="tablist" class="tabs tabs-bordered">
       <input type="radio" name="增加字段" role="tab" class="tab"  />
       <div role="tabpanel" class="tab-content p-2.5">
@@ -21,19 +21,10 @@
 
 <script setup>
 
-import LayoutStore from "./LayoutStore.vue";
-import actions from "./ActionConfig.js";
-import {ref} from "vue"
-const action = ref({});
-const NamedActionMap = actions.map((action) => {
-  return {
-    name: action.desc,
-    action: action
-  }
-})
+
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

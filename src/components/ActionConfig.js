@@ -5,71 +5,73 @@ export default [
                 {
                     "type": "input",
                     "title": "数据库名",
-                    "defaultValue": {
+                    "value": {
                         "type": String,
-                        "values": "",
+                        "default": "",
                     },
                     "rules": [], //校验规则, 待定
                 },
                 {
                     "type": "input",
                     "title": "表名",
-                    "defaultValue": {
+                    "value": {
                         "type": String,
-                        "values": "",
+                        "default": "",
                     },
                     "rules": [],
                 },
                 {
                     "type": "input",
                     "title": "字段名",
-                    "defaultValue": {
+                    "value": {
                         "type": String,
-                        "values": "",
+                        "default": "",
                     },
-                    "convertor": {}, //字段扩展函数, 用于完成对字段名加前缀后缀等功能...
                 },
                 {
                     "type": "input",
                     "title": "字段长度",
-                    "defaultValue": {
+                    "value": {
                         "type": String,
-                        "values": "",
+                        "default": "",
                     },
 
                 },
                 {
                     "type": "select",
                     "title": "字段类型",
-                    "placeholder": "String(Java兼容)",
-                    "defaultValue": {
-                        "type": Array,
-                        "values": ["Date(Java兼容)",
-                            "Number(Java兼容)",
-                            "Byte[](Java兼容)",
-                        ],
+                    "placeholder": "",
+                    "value": {
+                        "type": String,
+                        "default": "String(Java兼容)",
                     },
+                    "options": [
+                        "String(Java兼容)",
+                        "Date(Java兼容)",
+                        "Number(Java兼容)",
+                        "Byte[](Java兼容)",
+                    ],
                 },
                 {
                     "type": "checkbox",
                     "title": "目标数据库",
-                    "defaultValue": {
-                        "type": Array,
-                        "values":
-                            ["达梦",
-                                "TD SQL",],
+                    "value": {
+                        "type": String,
+                        "default": "达梦",
                     },
+                    "options":
+                        ["达梦",
+                        "TD SQL",
+                        ],
                 },
                 {
                     "type": "radio",
                     "title": "是否大表",
-                    "defaultValue": {
+                    "value": {
                         "type": String,
-                        "values": [
-                            "否",
-                            "是",
-                        ],
+                        "default": "否",
                     },
+                    "options": ["是", "否"],
                 },
                 {
                     "type": "textarea",
@@ -78,42 +80,84 @@ export default [
             ],
     },
     {
-            "desc": "减少字段",
-            "layout": [
-                {
-                    "type": "input",
-                    "title": "数据库名",
-                    "defaultValue": {
-                        "type": String,
-                        "values": "",
-                    },
-                    "rules": [], //校验规则, 待定
+        "desc": "减少字段",
+        "layout": [
+            {
+                "type": "input",
+                "title": "数据库名",
+                "value": {
+                    "type": String,
+                    "default": "",
                 },
-                {
-                    "type": "input",
-                    "title": "表名",
-                    "defaultValue": {
-                        "type": String,
-                        "values": "",
-                    },
-                    "rules": [],
+                "rules": [], //校验规则, 待定
+            },
+            {
+                "type": "input",
+                "title": "表名",
+                "value": {
+                    "type": String,
+                    "default": "",
                 },
-                {
-                    "type": "input",
-                    "title": "字段名",
-                    "defaultValue": {
-                        "type": String,
-                        "values": "",
-                    },
-                    "convertor": {}, //字段扩展函数, 用于完成对字段名加前缀后缀等功能...
+                "rules": [],
+            },
+            {
+                "type": "input",
+                "title": "字段名",
+                "value": {
+                    "type": String,
+                    "default": "",
+                },
+            },
+            {
+                "type": "input",
+                "title": "字段长度",
+                "value": {
+                    "type": String,
+                    "default": "",
                 },
 
-                {
-                    "type": "textarea",
-                    "title": "目标SQL输出",
-                }
-            ],
-    }
+            },
+            {
+                "type": "select",
+                "title": "字段类型",
+                "placeholder": "",
+                "value": {
+                    "type": String,
+                    "default": "String(Java兼容)",
+                },
+                "options": [
+                    "String(Java兼容)",
+                    "Date(Java兼容)",
+                    "Number(Java兼容)",
+                    "Byte[](Java兼容)",
+                ],
+            },
+            {
+                "type": "checkbox",
+                "title": "目标数据库",
+                "value": {
+                    "type": String,
+                    "default": "达梦",
+                },
+                "options":
+                    ["达梦",
+                        "TD SQL",
+                    ],
+            },
+            {
+                "type": "radio",
+                "title": "是否大表",
+                "value": {
+                    "type": String,
+                    "default": "否",
+                },
+                "options": ["是", "否"],
+            },
+        ],
+    },
+
+
+
 ]
 
 
