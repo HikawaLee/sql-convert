@@ -1,20 +1,20 @@
 <template>
  <div class="">
+    <p>action is --{{JSON.stringify(NamedActionMap)}}</p>
+    <button @click="">点击</button>
     <div role="tablist" class="tabs tabs-bordered">
-      <input type="radio" name="my_tabs_1" role="tab" class="tab" v-model:aria-label= />
+      <input type="radio" name="增加字段" role="tab" class="tab"  />
       <div role="tabpanel" class="tab-content p-2.5">
-        <LayoutStore/>
+        tab1
       </div>
 
-      <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="减少字段" checked />
-      <div role="tabpanel" class="tab-content p-2.5">
-        <LayoutStore/>
-      </div>
+<!--      <template v-for="(action, index) in actions" :key="index">-->
+<!--        <input type="radio" :name="action.desc" role="tab" class="tab" />-->
+<!--        <div role="tabpanel" class="tab-content p-2.5">-->
+<!--          <LayoutStore/>-->
+<!--        </div>-->
+<!--      </template>-->
 
-      <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="修改字段"  />
-      <div role="tabpanel" class="tab-content p-2.5 mt-1">
-        <LayoutStore/>
-      </div>
     </div>
   </div>
 </template>
@@ -22,14 +22,15 @@
 <script setup>
 
 import LayoutStore from "./LayoutStore.vue";
-import ActionConfig from "./ActionConfig.js";
-const action = ref("")
-const activeIndex = ref(0)
-
-const changeTab = (index) => {
-  activeIndex.value = index;
-}
-
+import actions from "./ActionConfig.js";
+import {ref} from "vue"
+const action = ref({});
+const NamedActionMap = actions.map((action) => {
+  return {
+    name: action.desc,
+    action: action
+  }
+})
 
 </script>
 

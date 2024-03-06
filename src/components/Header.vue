@@ -2,24 +2,22 @@
 <div class="navbar bg-base-100">
   <div class="navbar-start">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-      </div>
-      <!-- <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>增加字段</a></li>
-        <li><a>减少字段</a></li>
-        <li><a>修改字段</a></li>
-      </ul> -->
+      <select class="select select-bordered w-full max-w-xs" v-model="selected" @change="generateSQL">
+        <template v-for="(action, index) in NamedActionMap" :key="index">
+          <option>{{action.name}}</option>
+        </template>
+      </select>
+
     </div>
   </div>
   <div class="navbar-center">
     <a class="btn btn-ghost text-xl">SQL生成器</a>
   </div>
   <div class="navbar-end">
-    <button class="btn btn-ghost btn-circle">
+    <button class="btn btn-ghost btn-circle" @click="reset">
       重置
     </button>
-    <button class="btn btn-ghost btn-circle">
+    <button class="btn btn-ghost btn-circle" @click="generateSQL">
       生成
     </button>
   </div>
@@ -28,6 +26,39 @@
 </template>
 
 <script setup>
+import {ref, computed, watchEffect} from "vue";
+
+const props = defineProps({
+  actions: Array
+})
+const emits = defineEmits(['generate', 'reset']);
+
+const generateSQL = () => {
+  emits('generate', action.value.action)
+}
+
+
+const reset = () => {
+  emits('reset')
+}
+
+
+const NamedActionMap = props.actions.map((action) => {
+  return {
+    name: action.desc,
+    action: action
+  }
+})
+
+const selected = ref(props.actions[0].desc)
+
+const action = computed(() => {
+    return NamedActionMap.find((item) => item.name === selected.value)
+})
+
+
+
+
 
 </script>
 
